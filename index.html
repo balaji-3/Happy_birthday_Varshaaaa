@@ -2,8 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>For You, On Your 24th</title>
+  <title>For You, On Your 24th❤️</title>
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -32,7 +33,7 @@
     <div class="landing-content">
       <h1 class="line line-1">Today feels a little different.</h1>
       <h2 class="line line-2">Because you turn <span>24</span>.</h2>
-      <button id="enterBtn" class="enter-btn">Come in</button>
+      <button id="enterBtn" class="enter-btn">Come in →</button>
     </div>
   </section>
 
@@ -41,7 +42,7 @@
     <div class="fireflies"></div>
 
     <div class="wish-content">
-      <p class="wish-line">Happy 24th Birthday.</p>
+      <p class="wish-line">Happy 24th Birthday Varshaaa.❤️</p>
       <p class="wish-line">I hope this year is gentle with you.</p>
       <p class="wish-line">I hope you smile more than you expect to.</p>
       <p class="wish-line">And I hope today reminds you</p>
@@ -62,6 +63,92 @@
       </div>
     </div>
   </section>
+
+  <!-- AUDIO MEMORY SECTION -->
+<section class="section audio-memory" id="audioSection">
+
+  <div class="audio-wrapper">
+
+    <p class="audio-title">
+      Bear with my few minutes of yapping…
+    </p>
+
+    <div class="audio-player" id="audioPlayer">
+
+      <button class="skip-btn skip-left" id="backwardBtn" aria-label="Back 5 seconds">
+        ⟲
+      </button>
+
+      <div class="audio-core">
+        <div class="audio-ring"></div>
+        <button class="audio-btn" id="audioBtn">▶</button>
+      </div>
+
+      <button class="skip-btn skip-right" id="forwardBtn" aria-label="Forward 5 seconds">
+        ⟳
+      </button>
+
+    </div>
+
+    <button class="audio-continue hidden" id="toGiftBtn">
+      Bored I guess...SKIP IT →
+    </button>
+
+
+
+
+    <p class="audio-hint">
+      tap to listen
+    </p>
+
+    <audio id="voiceAudio">
+      <source src="assets/audio/voice-message.mp3" type="audio/mpeg">
+    </audio>
+
+  </div>
+
+</section>
+
+
+<!-- GIFT SECTION -->
+<section class="section gift" id="giftSection">
+
+  <div class="gift-wrapper">
+
+    <p class="gift-title">
+      One last thing…
+    </p>
+
+    <div class="envelope" id="envelope">
+      <div class="envelope-top"></div>
+      <div class="envelope-body"></div>
+    </div>
+
+    <div class="coupon hidden" id="couponCard">
+      <p class="coupon-label">A small gift for you</p>
+      <div class="coupon-code" id="couponCode">
+        YW4F-3CSPFA-ZQQA
+      </div>
+      <button class="copy-btn" id="copyCoupon">
+        copy code
+      </button>
+
+      <p class="coupon-note">
+        just wanted you to have it
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+
+
+  <!-- PHASE NAVIGATION -->
+  <div class="phase-nav">
+    <button id="prevPhase" aria-label="Previous phase">◀</button>
+    <button id="nextPhase" aria-label="Next phase">▶</button>
+  </div>
 
 
 
