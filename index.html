@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For You, On Your 24th</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&family=Pacifico&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+
+  <!-- Ambient Background -->
+  <div class="ambient-bg"></div>
+
+  <!-- Background Music -->
+  <audio id="bgMusic" loop>
+    <source src="assets/audio/soft-piano.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Music Toggle -->
+  <button id="musicToggle" class="music-toggle paused">🎵</button>
+
+  <!-- LANDING SECTION -->
+  <section class="section landing active">
+    <div class="landing-content">
+      <h1 class="line line-1">Today feels a little different.</h1>
+      <h2 class="line line-2">Because you turn <span>24</span>.</h2>
+      <button id="enterBtn" class="enter-btn">Come in</button>
+    </div>
+  </section>
+
+  <!-- WISH SECTION -->
+  <section class="section wish" id="wishSection">
+    <div class="fireflies"></div>
+
+    <div class="wish-content">
+      <p class="wish-line">Happy 24th Birthday.</p>
+      <p class="wish-line">I hope this year is gentle with you.</p>
+      <p class="wish-line">I hope you smile more than you expect to.</p>
+      <p class="wish-line">And I hope today reminds you</p>
+      <p class="wish-line highlight">how special you already are.</p>
+
+  <div class="continue-hint" id="toBalloons">↓</div>
+    </div>
+  </section>
+
+  <!-- BALLOON SECTION -->
+  <section class="section balloons" id="balloonSection">
+    <div class="balloon-container"></div>
+
+    <div class="balloon-overlay hidden">
+      <div class="balloon-card">
+        <p id="balloonText"></p>
+        <span id="closeBalloonMsg">Tap anywhere</span>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- TRANSITION OVERLAY -->
+  <div id="transitionOverlay"></div>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+</body>
+</html>
