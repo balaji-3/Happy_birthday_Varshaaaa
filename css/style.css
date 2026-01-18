@@ -1,3 +1,34 @@
+/* =========================
+   MOBILE BASE RESET
+========================= */
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.section {
+  width: 100vw;
+  height: 100svh; /* safer than 100vh on mobile */
+  padding: env(safe-area-inset-top)
+           env(safe-area-inset-right)
+           env(safe-area-inset-bottom)
+           env(safe-area-inset-left);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.section > * {
+  max-width: 100%;
+  text-align: center;
+}
+
+
 /* RESET */
 * {
   margin: 0;
@@ -315,3 +346,501 @@ body {
   background: rgba(15,16,32,0);
 }
 
+
+/* =========================
+   MEMORY SECTION
+========================= */
+.memories {
+  background: linear-gradient(180deg, #0c0d1a, #14162f);
+  overflow: hidden;
+}
+
+.memory-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+  padding: 40px;
+  max-width: 1000px;
+}
+
+.memory-card {
+  background: rgba(255,255,255,0.06);
+  border-radius: 14px;
+  padding: 24px;
+  font-family: 'Pacifico', cursive;
+  font-size: 1.2rem;
+  line-height: 1.5;
+  color: var(--accent-soft);
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+  transform: rotate(var(--tilt));
+  opacity: 0;
+  animation: memoryIn 1.2s ease forwards;
+}
+
+/* Stagger */
+.memory-card:nth-child(1) { animation-delay: 0.3s; --tilt: -2deg; }
+.memory-card:nth-child(2) { animation-delay: 0.6s; --tilt: 1.5deg; }
+.memory-card:nth-child(3) { animation-delay: 0.9s; --tilt: -1deg; }
+.memory-card:nth-child(4) { animation-delay: 1.2s; --tilt: 2deg; }
+.memory-card:nth-child(5) { animation-delay: 1.5s; --tilt: -1.5deg; }
+
+.memory-card:hover {
+  transform: scale(1.05) rotate(0deg);
+  background: rgba(255,255,255,0.12);
+}
+
+/* Hint */
+.memory-hint {
+  position: absolute;
+  bottom: 24px;
+  opacity: 0.5;
+  font-size: 0.9rem;
+}
+
+
+/* =========================
+   AUDIO MEMORY SECTION
+========================= */
+.audio-memory {
+  background: radial-gradient(circle at center, #14162f, #0b0c18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.audio-wrapper {
+  text-align: center;
+  max-width: 320px;
+}
+
+/* Text */
+.audio-title {
+  font-size: 1.3rem;
+  margin-bottom: 2.5rem;
+  opacity: 0;
+  animation: fadeUp 1.2s ease forwards;
+}
+
+.audio-hint {
+  margin-top: 1.5rem;
+  font-size: 0.85rem;
+  opacity: 0.5;
+}
+
+/* Player */
+.audio-player {
+  position: relative;
+  width: 140px;
+  height: 140px;
+  margin: 0 auto;
+}
+
+/* Pulsing ring */
+.audio-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px solid rgba(244,194,194,0.3);
+  opacity: 0;
+}
+
+/* Play button */
+.audio-btn {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(244,194,194,0.2);
+  backdrop-filter: blur(10px);
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+
+.audio-btn:hover {
+  transform: scale(1.05);
+}
+
+/* Playing state */
+.audio-player.playing .audio-ring {
+  animation: pulseRing 2.5s infinite ease-in-out;
+  opacity: 1;
+}
+
+.audio-player.playing .audio-btn {
+  background: rgba(244,194,194,0.3);
+}
+
+/* =========================
+   AUDIO PLAYER LAYOUT (FIXED)
+========================= */
+.audio-player {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+}
+
+/* Core stays centered */
+.audio-core {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Skip buttons float */
+.skip-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: rgba(255,255,255,0.45);
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  opacity: 0.6;
+}
+
+.skip-btn:hover {
+  color: var(--accent-soft);
+  opacity: 1;
+  transform: translateY(-50%) scale(1.2);
+}
+
+.skip-left {
+  left: -32px;
+}
+
+.skip-right {
+  right: -32px;
+}
+
+
+/* =========================
+   GIFT SECTION
+========================= */
+.gift {
+  background: linear-gradient(180deg, #0b0c18, #0f1020);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gift-wrapper {
+  text-align: center;
+  max-width: 320px;
+}
+
+/* Title */
+.gift-title {
+  font-size: 1.3rem;
+  margin-bottom: 2.5rem;
+  opacity: 0;
+  animation: fadeUp 1.2s ease forwards;
+}
+
+/* Envelope */
+.envelope {
+  position: relative;
+  width: 160px;
+  height: 110px;
+  margin: 0 auto;
+  cursor: pointer;
+}
+
+.envelope-body {
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0.08);
+  border-radius: 6px;
+}
+
+.envelope-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255,255,255,0.12);
+  clip-path: polygon(0 0, 50% 45%, 100% 0, 100% 100%, 0 100%);
+  transform-origin: top;
+  transition: transform 0.8s ease;
+}
+
+/* Open state */
+.envelope.open .envelope-top {
+  transform: rotateX(160deg);
+}
+
+/* Coupon card */
+.coupon {
+  margin-top: 2.5rem;
+  padding: 24px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 14px;
+  backdrop-filter: blur(10px);
+  animation: fadeUp 1s ease forwards;
+}
+
+.coupon-label {
+  font-size: 0.85rem;
+  opacity: 0.6;
+}
+
+.coupon-code {
+  margin: 1.2rem 0;
+  padding: 12px;
+  border: 1px dashed rgba(244,194,194,0.6);
+  border-radius: 8px;
+  font-size: 1.1rem;
+  letter-spacing: 2px;
+  color: var(--accent-soft);
+}
+
+/* Copy button */
+.copy-btn {
+  background: none;
+  border: none;
+  color: rgba(255,255,255,0.6);
+  cursor: pointer;
+  margin-top: 0.5rem;
+  transition: color 0.3s ease;
+}
+
+.copy-btn:hover {
+  color: var(--accent-soft);
+}
+
+/* Note */
+.coupon-note {
+  margin-top: 1.5rem;
+  font-size: 0.75rem;
+  opacity: 0.5;
+}
+
+.hidden {
+  display: none;
+}
+
+
+/* =========================
+   AUDIO → GIFT TRANSITION
+========================= */
+.audio-continue {
+  margin-top: 2.5rem;
+  background: none;
+  border: none;
+  font-size: 0.9rem;
+  color: var(--accent-soft);
+  opacity: 0;
+  cursor: pointer;
+  transition: opacity 1.2s ease, transform 0.6s ease;
+  transform: translateY(10px);
+}
+
+.audio-continue.show {
+  opacity: 0.8;
+  transform: translateY(0);
+}
+
+.audio-continue:hover {
+  opacity: 1;
+}
+
+
+/* =========================
+   PHASE NAVIGATION
+========================= */
+.phase-nav {
+  position: fixed;
+  bottom: 18px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+  pointer-events: none;
+  z-index: 50;
+}
+
+.phase-nav button {
+  pointer-events: auto;
+  background: rgba(255,255,255,0.08);
+  border: none;
+  color: rgba(255,255,255,0.6);
+  font-size: 0.9rem;
+  padding: 8px 14px;
+  border-radius: 20px;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  transition: all 0.3s ease;
+}
+
+.phase-nav button:hover {
+  color: var(--accent-soft);
+  background: rgba(255,255,255,0.15);
+}
+
+.phase-nav {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+
+/* MOBILE TAP SAFETY */
+button {
+  min-width: 44px;
+  min-height: 44px;
+}
+
+body {
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+@media (max-width: 360px) {
+  .audio-player {
+    width: 220px;
+    height: 220px;
+  }
+
+  .audio-core {
+    width: 160px;
+    height: 160px;
+  }
+
+  .audio-btn {
+    width: 105px;
+    height: 105px;
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .skip-left {
+    left: -24px;
+  }
+
+  .skip-right {
+    right: -24px;
+  }
+}
+
+@media (max-width: 600px) {
+  .audio-continue {
+    font-size: 0.85rem;
+    margin-top: 2rem;
+  }
+}
+
+
+
+
+@media (max-width: 600px) {
+  .gift-wrapper {
+    padding: 20px;
+  }
+
+  .envelope {
+    width: 140px;
+    height: 100px;
+  }
+
+  .coupon {
+    max-width: 100%;
+  }
+
+  .coupon-code {
+    font-size: 0.95rem;
+    letter-spacing: 1.2px;
+    word-break: break-word;
+  }
+}
+
+
+
+@media (max-width: 600px) {
+  .phase-nav {
+    bottom: 12px;
+  }
+
+  .phase-nav button {
+    padding: 10px 16px;
+    font-size: 0.85rem;
+  }
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .landing {
+    padding: 20px;
+  }
+
+  #enterBtn {
+    margin-top: 24px;
+  }
+}
+
+@media (max-width: 600px) {
+  .wish {
+    padding: 24px;
+  }
+
+  .wish-line {
+    font-size: 1.05rem;
+    line-height: 1.6;
+  }
+
+  .wish-line.highlight::after {
+    bottom: -4px;
+  }
+}
+
+.balloon-container {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+@media (max-width: 600px) {
+  .balloon-card {
+    padding: 28px;
+    max-width: 90%;
+    font-size: 1.2rem;
+  }
+
+  .balloon-card span {
+    font-size: 0.75rem;
+  }
+}
+@media (max-width: 600px) {
+  .balloon,
+  .audio-ring,
+  .fireflies span {
+    will-change: transform, opacity;
+  }
+}
+
+
+
+
+
+
+body {
+  overflow-x: hidden;
+}
